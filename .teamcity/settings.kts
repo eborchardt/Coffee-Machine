@@ -39,7 +39,7 @@ object Build : BuildType({
 
     triggers {
         vcs {
-            triggerRules = """+:root=${'$'}{DslContext.getParameter("vcsroot"):.about-version"""
+            triggerRules = """+:root=${DslContext.getParameter("vcsroot")}:.about-version"""
 
             branchFilter = ""
         }

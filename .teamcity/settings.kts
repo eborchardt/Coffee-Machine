@@ -65,7 +65,7 @@ object Build : BuildType({
 
     artifactRules = """
         .about-version => test.zip
-        README.md
+        README.md => test.zip
     """.trimIndent()
 
     params {

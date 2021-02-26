@@ -56,6 +56,8 @@ project {
             password = "credentialsJSON:fdbfb5c9-8963-4e21-9241-93e77e0ad70a"
         }
     }
+
+    subProject(Subproject)
 }
 
 object Build : BuildType({
@@ -230,4 +232,9 @@ object AzureCoffeeMachine : GitVcsRoot({
         userName = "administrator"
         password = "credentialsJSON:9399bc85-a065-4f7a-9926-e5a206f08856"
     }
+})
+
+
+object Subproject : Project({
+    name = "subproject"
 })

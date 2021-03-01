@@ -71,6 +71,11 @@ project {
             param("aws.region.name", "us-east-1")
             param("storage.s3.upload.presignedUrl.enabled", "true")
         }
+        feature {
+            id = "PROJECT_EXT_30"
+            type = "active_storage"
+            param("active.storage.feature.id", "PROJECT_EXT_21")
+        }
     }
 
     subProject(Subproject)

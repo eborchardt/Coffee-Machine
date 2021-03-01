@@ -39,6 +39,7 @@ project {
     buildType(PullRequestTest)
     buildType(SetVersion)
     buildType(BuildStreamjockey)
+    buildType(MvnDeploy)
     buildType(Build)
 
     features {
@@ -178,6 +179,10 @@ object ManualDeploy : BuildType({
     requirements {
         doesNotEqual("env.OS", "Windows_NT")
     }
+})
+
+object MvnDeploy : BuildType({
+    name = "mvn deploy"
 })
 
 object PullRequestTest : BuildType({

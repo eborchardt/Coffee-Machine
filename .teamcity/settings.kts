@@ -61,7 +61,6 @@ project {
             type = "storage_settings"
             param("aws.service.endpoint", "http://192.168.0.63:4566")
             param("secure:aws.secret.access.key", "credentialsJSON:bfedcbdc-5db8-450f-b279-3d9182096e20")
-            param("storage.s3.use.signature.v4", "true")
             param("aws.external.id", "TeamCity-server-9eec4a2a-59ee-45ac-93f3-917eac33b497")
             param("aws.environment", "custom")
             param("storage.name", "asdf")

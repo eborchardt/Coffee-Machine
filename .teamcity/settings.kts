@@ -114,6 +114,7 @@ object Build : BuildType({
             param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")
         }
         script {
+            enabled = false
             scriptContent = "echo ##teamcity[setParameter name='secretpassword' value='youcantseethis' type='password']"
             param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
             param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")

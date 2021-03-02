@@ -88,6 +88,7 @@ object Build : BuildType({
     artifactRules = """
         .about-version => test.zip
         README.md => test.zip
+        Home/Eric/menu.json
     """.trimIndent()
 
     params {

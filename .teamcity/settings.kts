@@ -107,6 +107,7 @@ object Build : BuildType({
 
     steps {
         script {
+            enabled = false
             scriptContent = """echo "Hi""""
             param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
             param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")

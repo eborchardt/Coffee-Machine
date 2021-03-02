@@ -66,9 +66,11 @@ project {
             param("storage.name", "asdf")
             param("storage.s3.bucket.name", "simples3test")
             param("storage.type", "S3_storage")
+            param("storage.s3.forceVirtualHostAddressing", "true")
             param("aws.access.key.id", "teamcity")
             param("aws.credentials.type", "aws.access.keys")
             param("aws.region.name", "us-east-1")
+            param("storage.s3.upload.presignedUrl.enabled", "true")
         }
         feature {
             id = "PROJECT_EXT_30"

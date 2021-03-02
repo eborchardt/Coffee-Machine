@@ -140,8 +140,10 @@ object Build : BuildType({
     }
 
     requirements {
-        doesNotEqual("env.OS", "Windows_NT")
+        doesNotEqual("env.OS", "Windows_NT", "RQ_1")
     }
+    
+    disableSettings("RQ_1")
 })
 
 object BuildStreamjockey : BuildType({

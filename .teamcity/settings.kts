@@ -56,6 +56,11 @@ project {
             password = "credentialsJSON:fdbfb5c9-8963-4e21-9241-93e77e0ad70a"
         }
         feature {
+            id = "PROJECT_EXT_21"
+            type = "active_storage"
+            param("active.storage.feature.id", "PROJECT_EXT_31")
+        }
+        feature {
             id = "PROJECT_EXT_31"
             type = "storage_settings"
             param("aws.service.endpoint", "")

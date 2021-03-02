@@ -55,27 +55,6 @@ project {
             userName = "xxandorra"
             password = "credentialsJSON:fdbfb5c9-8963-4e21-9241-93e77e0ad70a"
         }
-        feature {
-            id = "PROJECT_EXT_21"
-            type = "storage_settings"
-            param("aws.service.endpoint", "http://192.168.0.63:4566")
-            param("secure:aws.secret.access.key", "credentialsJSON:fb8edf82-7ec8-494d-901f-4ab999079ff7")
-            param("aws.external.id", "TeamCity-server-9eec4a2a-59ee-45ac-93f3-917eac33b497")
-            param("aws.environment", "custom")
-            param("storage.name", "asdf")
-            param("storage.s3.bucket.name", "simples3test")
-            param("storage.type", "S3_storage")
-            param("storage.s3.forceVirtualHostAddressing", "true")
-            param("aws.access.key.id", "teamcity")
-            param("aws.credentials.type", "aws.access.keys")
-            param("aws.region.name", "us-east-1")
-            param("storage.s3.upload.presignedUrl.enabled", "true")
-        }
-        feature {
-            id = "PROJECT_EXT_30"
-            type = "active_storage"
-            param("active.storage.feature.id", "PROJECT_EXT_21")
-        }
     }
 
     subProject(Subproject)

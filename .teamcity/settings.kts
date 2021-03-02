@@ -69,7 +69,6 @@ project {
             param("aws.access.key.id", "teamcity")
             param("aws.credentials.type", "aws.access.keys")
             param("aws.region.name", "us-east-1")
-            param("storage.s3.upload.presignedUrl.enabled", "true")
         }
         feature {
             id = "PROJECT_EXT_30"

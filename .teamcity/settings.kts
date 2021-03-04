@@ -84,11 +84,7 @@ project {
 object Build : BuildType({
     name = "Build"
 
-    artifactRules = """
-        .about-version => test.zip
-        README.md => test.zip
-        Home/Eric/menu.json
-    """.trimIndent()
+    artifactRules = "%artifactdir% => test.zip"
     buildNumberPattern = "14.7.%build.counter%"
 
     params {

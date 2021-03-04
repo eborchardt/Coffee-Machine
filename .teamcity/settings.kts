@@ -95,6 +95,7 @@ object Build : BuildType({
               regex = "^true${'$'}", validationMessage = "Confirmation Required")
         param("teamcity.vcsTrigger.analyzeFullHistoryForMergeCommits", "false")
         param("teamcity.vcsTrigger.analyzeAllPendingChangesOnMergeCommit", "false")
+        param("artifactdir", "Home")
     }
 
     vcs {

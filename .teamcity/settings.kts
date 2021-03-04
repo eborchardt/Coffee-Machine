@@ -84,7 +84,7 @@ project {
 object Build : BuildType({
     name = "Build"
 
-    artifactRules = "%artifactdir% => test.zip"
+    artifactRules = "%artifactdir%"
     buildNumberPattern = "14.7.%build.counter%"
 
     params {

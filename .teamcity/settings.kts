@@ -89,6 +89,7 @@ object Build : BuildType({
         README.md => test.zip
         Home/Eric/menu.json
     """.trimIndent()
+    buildNumberPattern = "14.7.%build.counter%"
 
     params {
         param("teamcity.vcsTrigger.mergedBranchesThreshold", "3")

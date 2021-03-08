@@ -107,8 +107,10 @@ project {
                   }
                 ]
             """.trimIndent())
-            param("format", "text")
+            param("format", "duration")
+            param("hideFilters", "")
             param("title", "Chart title")
+            param("defaultFilters", "")
             param("seriesTitle", "Serie")
         }
     }

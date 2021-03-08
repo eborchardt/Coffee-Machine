@@ -61,23 +61,6 @@ project {
             param("active.storage.feature.id", "PROJECT_EXT_31")
         }
         feature {
-            id = "PROJECT_EXT_30"
-            type = "buildtype-graphs"
-            param("series", """
-                [
-                  {
-                    "type": "valueType",
-                    "title": "Success Rate",
-                    "key": "SuccessRate"
-                  }
-                ]
-            """.trimIndent())
-            param("format", "text")
-            param("hideFilters", "")
-            param("title", "Total Builds")
-            param("defaultFilters", "")
-        }
-        feature {
             id = "PROJECT_EXT_31"
             type = "storage_settings"
             param("aws.service.endpoint", "")

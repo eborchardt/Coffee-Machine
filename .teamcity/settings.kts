@@ -89,7 +89,7 @@ project {
                   }
                 ]
             """.trimIndent())
-            param("format", "percent")
+            param("format", "percentBy1")
             param("hideFilters", "")
             param("title", "New chart title")
             param("defaultFilters", "")

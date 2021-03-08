@@ -76,6 +76,23 @@ project {
             param("aws.region.name", "us-east-2")
             param("storage.s3.upload.presignedUrl.enabled", "true")
         }
+        feature {
+            id = "PROJECT_EXT_32"
+            type = "project-graphs"
+            param("series", """
+                [
+                  {
+                    "type": "valueType",
+                    "title": "Success Rate",
+                    "sourceBuildTypeId": "CoffeeMachine_Build",
+                    "key": "SuccessRate"
+                  }
+                ]
+            """.trimIndent())
+            param("format", "text")
+            param("title", "New chart title")
+            param("seriesTitle", "Serie")
+        }
     }
 
     subProject(Subproject)

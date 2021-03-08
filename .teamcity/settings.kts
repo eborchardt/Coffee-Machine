@@ -61,6 +61,27 @@ project {
             param("active.storage.feature.id", "PROJECT_EXT_31")
         }
         feature {
+            id = "PROJECT_EXT_30"
+            type = "buildtype-graphs"
+            param("series", """
+                [
+                  {
+                    "type": "valueType",
+                    "title": "Starting Build on Agent",
+                    "key": "buildStageDuration:firstStepPreparation"
+                  },
+                  {
+                    "type": "valueType",
+                    "title": "Finishing Build on Server",
+                    "key": "serverSideBuildFinishing"
+                  }
+                ]
+            """.trimIndent())
+            param("format", "integer")
+            param("title", "Total Builds")
+            param("seriesTitle", "Serie")
+        }
+        feature {
             id = "PROJECT_EXT_31"
             type = "storage_settings"
             param("aws.service.endpoint", "")

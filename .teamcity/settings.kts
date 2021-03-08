@@ -95,6 +95,22 @@ project {
             param("defaultFilters", "")
             param("seriesTitle", "Serie")
         }
+        feature {
+            id = "PROJECT_EXT_33"
+            type = "buildtype-graphs"
+            param("series", """
+                [
+                  {
+                    "type": "valueType",
+                    "title": "Starting Build on Agent",
+                    "key": "buildStageDuration:firstStepPreparation"
+                  }
+                ]
+            """.trimIndent())
+            param("format", "text")
+            param("title", "Chart title")
+            param("seriesTitle", "Serie")
+        }
     }
 
     subProject(Subproject)

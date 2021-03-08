@@ -67,19 +67,15 @@ project {
                 [
                   {
                     "type": "valueType",
-                    "title": "Starting Build on Agent",
-                    "key": "buildStageDuration:firstStepPreparation"
-                  },
-                  {
-                    "type": "valueType",
-                    "title": "Finishing Build on Server",
-                    "key": "serverSideBuildFinishing"
+                    "title": "Success Rate",
+                    "key": "SuccessRate"
                   }
                 ]
             """.trimIndent())
-            param("format", "integer")
+            param("format", "text")
+            param("hideFilters", "")
             param("title", "Total Builds")
-            param("seriesTitle", "Serie")
+            param("defaultFilters", "")
         }
         feature {
             id = "PROJECT_EXT_31"

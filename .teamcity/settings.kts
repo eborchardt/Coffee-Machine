@@ -89,8 +89,10 @@ project {
                   }
                 ]
             """.trimIndent())
-            param("format", "text")
+            param("format", "percent")
+            param("hideFilters", "")
             param("title", "New chart title")
+            param("defaultFilters", "")
             param("seriesTitle", "Serie")
         }
     }

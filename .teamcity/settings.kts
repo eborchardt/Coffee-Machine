@@ -185,6 +185,12 @@ object BuildStreamjockey : BuildType({
             }
             param("dockerImage.platform", "linux")
         }
+        dockerCommand {
+            id = "RUNNER_124"
+            commandType = push {
+                namesAndTags = "figlet:ubuntu"
+            }
+        }
     }
 
     features {

@@ -1,5 +1,6 @@
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.dockerSupport
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.azureDevopsConnection
 import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.dockerRegistry
@@ -170,7 +171,9 @@ object BuildStreamjockey : BuildType({
     steps {
         script {
             id = "RUNNER_1"
-            scriptContent = "echo %PerforceStream%"
+            scriptContent = "echo %build.number%"
+            dockerImagePlatform = ScriptBuildStep.ImagePlatform.Linux
+            dockerImage = "teamcity-buildagent"
             param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
             param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")
             param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")

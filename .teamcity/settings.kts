@@ -43,6 +43,8 @@ project {
     buildType(MvnDeploy)
     buildType(Build)
 
+    template(LocalDockerSupport)
+
     features {
         azureDevopsConnection {
             id = "PROJECT_EXT_13"
@@ -128,28 +130,12 @@ project {
 }
 
 object Build : BuildType({
+    templates(LocalDockerSupport)
     name = "Build"
-
-    artifactRules = "%artifactdir%"
-    buildNumberPattern = "14.7.%build.counter%"
-
-    params {
-        param("teamcity.vcsTrigger.mergedBranchesThreshold", "3")
-        checkbox("Confirmation", "false", label = "Confirmation", display = ParameterDisplay.PROMPT,
-                  checked = "true", unchecked = "false")
-        text("ConfirmationCheck", "%Confirmation%", display = ParameterDisplay.HIDDEN,
-              regex = "^true${'$'}", validationMessage = "Confirmation Required")
-        param("teamcity.vcsTrigger.analyzeFullHistoryForMergeCommits", "false")
-        param("teamcity.vcsTrigger.analyzeAllPendingChangesOnMergeCommit", "false")
-        param("artifactdir", "Home => test.zip")
-    }
-
-    vcs {
-        root(DslContext.settingsRoot)
-    }
 
     steps {
         script {
+            id = "RUNNER_1"
             enabled = false
             scriptContent = """echo "Hi""""
             param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
@@ -157,28 +143,12 @@ object Build : BuildType({
             param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")
         }
         script {
+            id = "RUNNER_2"
             enabled = false
             scriptContent = "echo ##teamcity[setParameter name='secretpassword' value='youcantseethis' type='password']"
             param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
             param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")
             param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")
-        }
-    }
-
-    triggers {
-        vcs {
-            triggerRules = "+:/Home/"
-            branchFilter = ""
-            enableQueueOptimization = false
-        }
-    }
-
-    features {
-        dockerSupport {
-            cleanupPushedImages = true
-            loginToRegistry = on {
-                dockerRegistryId = "PROJECT_EXT_30"
-            }
         }
     }
 
@@ -291,6 +261,47 @@ object SetVersion : BuildType({
             param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
             param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")
             param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")
+        }
+    }
+})
+
+object LocalDockerSupport : Template({
+    name = "LocalDockerSupport"
+
+    artifactRules = "%artifactdir%"
+    buildNumberPattern = "14.7.%build.counter%"
+
+    params {
+        param("teamcity.vcsTrigger.mergedBranchesThreshold", "3")
+        checkbox("Confirmation", "false", label = "Confirmation", display = ParameterDisplay.PROMPT,
+                  checked = "true", unchecked = "false")
+        text("ConfirmationCheck", "%Confirmation%", display = ParameterDisplay.HIDDEN,
+              regex = "^true${'$'}", validationMessage = "Confirmation Required")
+        param("teamcity.vcsTrigger.analyzeFullHistoryForMergeCommits", "false")
+        param("teamcity.vcsTrigger.analyzeAllPendingChangesOnMergeCommit", "false")
+        param("artifactdir", "Home => test.zip")
+    }
+
+    vcs {
+        root(DslContext.settingsRoot)
+    }
+
+    triggers {
+        vcs {
+            id = "TRIGGER_1"
+            triggerRules = "+:/Home/"
+            branchFilter = ""
+            enableQueueOptimization = false
+        }
+    }
+
+    features {
+        dockerSupport {
+            id = "BUILD_EXT_1"
+            cleanupPushedImages = true
+            loginToRegistry = on {
+                dockerRegistryId = "PROJECT_EXT_30"
+            }
         }
     }
 })

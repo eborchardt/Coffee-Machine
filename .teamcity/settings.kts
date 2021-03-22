@@ -151,6 +151,23 @@ object Build : BuildType({
             param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")
             param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")
         }
+        dockerCommand {
+            id = "RUNNER_125"
+            commandType = build {
+                source = content {
+                    content = """
+                        FROM ubuntu
+                        
+                        RUN apt update && apt upgrade -y
+                        RUN apt install figlet -y
+                        RUN rm -rf /var/lib/apt/lists/*
+                    """.trimIndent()
+                }
+                namesAndTags = "figlet:ubuntu"
+                commandArgs = "--pull"
+            }
+            param("dockerImage.platform", "linux")
+        }
     }
 
     requirements {

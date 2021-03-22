@@ -240,10 +240,6 @@ object PullRequestTest : BuildType({
     name = "PullRequestTest"
     paused = true
 
-    vcs {
-        root(DslContext.settingsRoot)
-    }
-
     steps {
         maven {
             goals = "clean test"

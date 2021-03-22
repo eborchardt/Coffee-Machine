@@ -1,5 +1,6 @@
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.pullRequests
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.maven
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.azureDevopsConnection
 import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.dockerRegistry
@@ -242,6 +243,14 @@ object PullRequestTest : BuildType({
 
     vcs {
         root(DslContext.settingsRoot)
+    }
+
+    steps {
+        maven {
+            goals = "clean test"
+            pomLocation = ".teamcity/pom.xml"
+            runnerArgs = "-Dmaven.test.failure.ignore=true"
+        }
     }
 
     triggers {

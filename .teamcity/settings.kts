@@ -1,5 +1,4 @@
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
-import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.pullRequests
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.maven
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.azureDevopsConnection
@@ -257,17 +256,6 @@ object PullRequestTest : BuildType({
         vcs {
             triggerRules = "+:/Home/"
             branchFilter = "+:pull/*"
-        }
-    }
-
-    features {
-        pullRequests {
-            vcsRootExtId = "${AzureCoffeeMachine.id}"
-            provider = azureDevOps {
-                authType = token {
-                    token = "credentialsJSON:9494d50d-8c05-41d0-8ada-db7aebe02da1"
-                }
-            }
         }
     }
 })

@@ -63,7 +63,7 @@ project {
         }
         dockerRegistry {
             id = "PROJECT_EXT_30"
-            name = "Docker Registry"
+            name = "Local Docker Registry"
             url = "http://192.168.0.63:5000"
             userName = "eborchardt"
             password = "credentialsJSON:a253a8db-e3ec-40dd-bc0b-3c6f41a3215e"

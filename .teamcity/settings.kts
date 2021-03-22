@@ -175,6 +175,14 @@ object BuildStreamjockey : BuildType({
         }
     }
 
+    features {
+        dockerSupport {
+            loginToRegistry = on {
+                dockerRegistryId = "PROJECT_EXT_20"
+            }
+        }
+    }
+
     dependencies {
         snapshot(SetVersion) {
             synchronizeRevisions = false

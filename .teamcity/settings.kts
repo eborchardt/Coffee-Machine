@@ -240,6 +240,10 @@ object PullRequestTest : BuildType({
     name = "PullRequestTest"
     paused = true
 
+    vcs {
+        root(DslContext.settingsRoot)
+    }
+
     triggers {
         vcs {
             triggerRules = "+:/Home/"

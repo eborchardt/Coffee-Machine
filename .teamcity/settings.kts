@@ -176,7 +176,7 @@ object BuildStreamjockey : BuildType({
                     content = """
                         FROM ubuntu
                         
-                        RUN apt update && apt-upgrade -y
+                        RUN apt update && apt upgrade -y
                         RUN apt install -y figlet
                         RUN rm -rf /var/lib/apt/lists/*
                     """.trimIndent()

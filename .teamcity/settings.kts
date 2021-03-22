@@ -160,6 +160,7 @@ object Build : BuildType({
 })
 
 object BuildStreamjockey : BuildType({
+    templates(LocalDockerSupport)
     name = "build streamjockey"
 
     params {
@@ -168,6 +169,7 @@ object BuildStreamjockey : BuildType({
 
     steps {
         script {
+            id = "RUNNER_1"
             scriptContent = "echo %PerforceStream%"
             param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
             param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")
@@ -177,6 +179,7 @@ object BuildStreamjockey : BuildType({
 
     features {
         dockerSupport {
+            id = "DockerSupport"
             loginToRegistry = on {
                 dockerRegistryId = "PROJECT_EXT_20"
             }

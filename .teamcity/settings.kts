@@ -176,6 +176,16 @@ object Build : BuildType({
         }
     }
 
+    features {
+        dockerSupport {
+            id = "BUILD_EXT_1"
+            cleanupPushedImages = true
+            loginToRegistry = on {
+                dockerRegistryId = "PROJECT_EXT_30,PROJECT_EXT_20"
+            }
+        }
+    }
+
     requirements {
         doesNotEqual("env.OS", "Windows_NT", "RQ_1")
     }

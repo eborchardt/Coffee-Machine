@@ -34,6 +34,7 @@ project {
 
     vcsRoot(AzureCoffeeMachine)
     vcsRoot(GitBitbucketOrgEborchardtNomasterGit)
+    vcsRoot(BitbucketCloudSsh)
 
     buildType(ManualDeploy)
     buildType(PullRequestTest)
@@ -241,6 +242,10 @@ object PullRequestTest : BuildType({
     name = "PullRequestTest"
     paused = true
 
+    vcs {
+        root(BitbucketCloudSsh)
+    }
+
     steps {
         maven {
             goals = "clean test"
@@ -281,6 +286,15 @@ object AzureCoffeeMachine : GitVcsRoot({
     authMethod = password {
         userName = "administrator"
         password = "credentialsJSON:9399bc85-a065-4f7a-9926-e5a206f08856"
+    }
+})
+
+object BitbucketCloudSsh : GitVcsRoot({
+    name = "bitbucket cloud ssh"
+    url = "git@bitbucket.org:eborchardt/nomaster.git"
+    branch = "notmaster"
+    authMethod = uploadedKey {
+        uploadedKey = "bitbucket"
     }
 })
 

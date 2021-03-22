@@ -171,7 +171,7 @@ object Build : BuildType({
         dockerCommand {
             id = "RUNNER_126"
             commandType = push {
-                namesAndTags = "figlet:ubuntu"
+                namesAndTags = "http://192.168.0.63:5000/figlet:ubuntu"
             }
         }
     }

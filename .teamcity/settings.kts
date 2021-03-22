@@ -1,6 +1,6 @@
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.dockerSupport
-import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.ScriptBuildStep
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.dockerCommand
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.azureDevopsConnection
 import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.dockerRegistry
@@ -169,14 +169,21 @@ object BuildStreamjockey : BuildType({
     }
 
     steps {
-        script {
+        dockerCommand {
             id = "RUNNER_1"
-            scriptContent = "echo %build.number%"
-            dockerImagePlatform = ScriptBuildStep.ImagePlatform.Linux
-            dockerImage = """http://192.168.0.63:5000\teamcity-buildagent"""
-            param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
-            param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")
-            param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")
+            commandType = build {
+                source = content {
+                    content = """
+                        FROM ubuntu
+                        
+                        RUN apt update && apt-upgrade -y
+                        RUN apt install -y figlet
+                        RUN rm -rf /var/lib/apt/lists/*
+                    """.trimIndent()
+                }
+                namesAndTags = "figlet:ubuntu"
+            }
+            param("dockerImage.platform", "linux")
         }
     }
 

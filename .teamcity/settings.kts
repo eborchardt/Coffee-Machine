@@ -241,10 +241,6 @@ object PullRequestTest : BuildType({
     name = "PullRequestTest"
     paused = true
 
-    vcs {
-        root(GitBitbucketOrgEborchardtNomasterGit)
-    }
-
     steps {
         maven {
             goals = "clean test"

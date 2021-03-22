@@ -173,7 +173,7 @@ object BuildStreamjockey : BuildType({
             id = "RUNNER_1"
             scriptContent = "echo %build.number%"
             dockerImagePlatform = ScriptBuildStep.ImagePlatform.Linux
-            dockerImage = "192.168.0.63:5000/teamcity-buildagent"
+            dockerImage = "http://192.168.0.63:5000/teamcity-buildagent"
             param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
             param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")
             param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")

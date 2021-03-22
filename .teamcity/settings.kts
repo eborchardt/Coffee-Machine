@@ -168,6 +168,12 @@ object Build : BuildType({
             }
             param("dockerImage.platform", "linux")
         }
+        dockerCommand {
+            id = "RUNNER_126"
+            commandType = push {
+                namesAndTags = "figlet:ubuntu"
+            }
+        }
     }
 
     requirements {

@@ -163,7 +163,7 @@ object Build : BuildType({
                         RUN rm -rf /var/lib/apt/lists/*
                     """.trimIndent()
                 }
-                namesAndTags = "figlet:ubuntu"
+                namesAndTags = "192.168.0.63:5000/figlet:ubuntu"
                 commandArgs = "--pull"
             }
             param("dockerImage.platform", "linux")

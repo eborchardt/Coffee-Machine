@@ -292,6 +292,7 @@ object BitbucketCloudSsh : GitVcsRoot({
     name = "bitbucket cloud ssh"
     url = "git@bitbucket.org:eborchardt/nomaster.git"
     branch = "notmaster"
+    branchSpec = "refs/heads/*"
     authMethod = uploadedKey {
         uploadedKey = "bitbucket"
     }

@@ -61,6 +61,13 @@ project {
             type = "active_storage"
             param("active.storage.feature.id", "PROJECT_EXT_31")
         }
+        dockerRegistry {
+            id = "PROJECT_EXT_30"
+            name = "Docker Registry"
+            url = "http://192.168.0.63:5000"
+            userName = "eborchardt"
+            password = "credentialsJSON:a253a8db-e3ec-40dd-bc0b-3c6f41a3215e"
+        }
         feature {
             id = "PROJECT_EXT_31"
             type = "storage_settings"

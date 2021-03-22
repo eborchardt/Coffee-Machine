@@ -240,7 +240,6 @@ object MvnDeploy : BuildType({
 
 object PullRequestTest : BuildType({
     name = "PullRequestTest"
-    paused = true
 
     vcs {
         root(BitbucketCloudSsh)

@@ -3,6 +3,7 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.dockerSupport
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.dockerCommand
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.azureDevopsConnection
+import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.bitbucketCloudConnection
 import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.dockerRegistry
 import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
 import jetbrains.buildServer.configs.kotlin.v2019_2.vcs.GitVcsRoot
@@ -124,6 +125,12 @@ project {
             param("title", "Chart title")
             param("defaultFilters", "")
             param("seriesTitle", "Serie")
+        }
+        bitbucketCloudConnection {
+            id = "PROJECT_EXT_37"
+            displayName = "Bitbucket Cloud"
+            key = "wU9Vj6tNkrf36KvzHu"
+            clientSecret = "credentialsJSON:3706a51e-3626-4d5a-b5db-6b139b281536"
         }
     }
 

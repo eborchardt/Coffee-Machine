@@ -1,5 +1,6 @@
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.dockerSupport
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.pullRequests
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.dockerCommand
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.azureDevopsConnection
@@ -34,14 +35,17 @@ version = "2020.2"
 
 project {
 
+    vcsRoot(Bitbucketcloudhttps)
     vcsRoot(AzureCoffeeMachine)
     vcsRoot(GitBitbucketOrgEborchardtNomasterGit)
     vcsRoot(BitbucketCloudSsh)
+    vcsRoot(HttpsGithubComEborchardtHelloWorld)
 
     buildType(ManualDeploy)
     buildType(PullRequestTest)
     buildType(SetVersion)
     buildType(BuildStreamjockey)
+    buildType(RestParameterChanging)
     buildType(MvnDeploy)
     buildType(Build)
 
@@ -295,7 +299,7 @@ object PullRequestTest : BuildType({
     name = "PullRequestTest"
 
     vcs {
-        root(BitbucketCloudSsh)
+        root(Bitbucketcloudhttps)
     }
 
     steps {
@@ -309,8 +313,67 @@ object PullRequestTest : BuildType({
 
     triggers {
         vcs {
-            triggerRules = "+:/Home/"
-            branchFilter = "+:pull/*"
+        }
+    }
+
+    features {
+        pullRequests {
+            vcsRootExtId = "${Bitbucketcloudhttps.id}"
+            provider = bitbucketCloud {
+                authType = vcsRoot()
+                filterTargetBranch = "+:refs/heads/master"
+            }
+        }
+    }
+})
+
+object RestParameterChanging : BuildType({
+    name = "REST parameter changing"
+
+    params {
+        param("someparam", "12345")
+    }
+
+    vcs {
+        root(HttpsGithubComEborchardtHelloWorld)
+    }
+
+    steps {
+        script {
+            scriptContent = """
+                echo value: %someparam%
+                echo ##teamcity[setParameter name='someparam' value='67890']
+                echo value: %someparam%
+            """.trimIndent()
+            param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
+            param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")
+            param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")
+        }
+        script {
+            name = "New build step"
+            scriptContent = """
+                echo value: %someparam%
+                echo ##teamcity[setParameter name='someparam' value='12345']
+                echo value: %someparam%
+            """.trimIndent()
+            param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
+            param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")
+            param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")
+        }
+        script {
+            name = "New build step (1)"
+
+            conditions {
+                equals("teamcity.build.branch.is_default", "true")
+            }
+            scriptContent = """
+                echo value: %someparam%
+                echo ##teamcity[setParameter name='someparam' value='67890']
+                echo value: %someparam%
+            """.trimIndent()
+            param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
+            param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")
+            param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")
         }
     }
 })
@@ -393,10 +456,36 @@ object BitbucketCloudSsh : GitVcsRoot({
     }
 })
 
+object Bitbucketcloudhttps : GitVcsRoot({
+    name = "bitbucketcloudhttps"
+    url = "https://eborchardt@bitbucket.org/eborchardt/nomaster.git"
+    branch = "refs/heads/master"
+    authMethod = password {
+        userName = "eborchardt"
+        password = "credentialsJSON:6c2aafc1-51b7-49ba-8b40-4902322c8350"
+    }
+    param("oauthProviderId", "PROJECT_EXT_37")
+})
+
 object GitBitbucketOrgEborchardtNomasterGit : GitVcsRoot({
     name = "git@bitbucket.org:eborchardt/nomaster.git"
     url = "git@bitbucket.org:eborchardt/nomaster.git"
     branch = "not-master"
+})
+
+object HttpsGithubComEborchardtHelloWorld : GitVcsRoot({
+    name = "https://github.com/eborchardt/hello-world"
+    url = "https://github.com/eborchardt/hello-world"
+    branch = "refs/heads/master"
+    branchSpec = """
+        refs/heads/feature-*
+        +:refs/heads/dev
+    """.trimIndent()
+    userNameStyle = GitVcsRoot.UserNameStyle.FULL
+    authMethod = password {
+        userName = "eborchardt"
+        password = "credentialsJSON:a45b70d2-7e67-46ef-9713-4ccb0e20487e"
+    }
 })
 
 

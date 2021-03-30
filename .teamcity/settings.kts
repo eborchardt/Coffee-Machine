@@ -42,6 +42,7 @@ project {
     vcsRoot(HttpsGithubComEborchardtHelloWorld)
 
     buildType(ManualDeploy)
+    buildType(Dockercompose)
     buildType(PullRequestTest)
     buildType(SetVersion)
     buildType(BuildStreamjockey)
@@ -251,6 +252,10 @@ object BuildStreamjockey : BuildType({
             synchronizeRevisions = false
         }
     }
+})
+
+object Dockercompose : BuildType({
+    name = "dockercompose"
 })
 
 object ManualDeploy : BuildType({

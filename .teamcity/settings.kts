@@ -49,6 +49,7 @@ project {
     buildType(PullRequestTest)
     buildType(SetVersion)
     buildType(BuildStreamjockey)
+    buildType(NoSources)
     buildType(Build1)
     buildType(RestParameterChanging)
     buildType(MvnDeploy)
@@ -333,6 +334,10 @@ object ManualDeploy : BuildType({
 
 object MvnDeploy : BuildType({
     name = "mvn deploy"
+})
+
+object NoSources : BuildType({
+    name = "NoSources"
 })
 
 object PullRequestTest : BuildType({

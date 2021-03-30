@@ -218,7 +218,7 @@ object Build1 : BuildType({
 
     steps {
         dockerCompose {
-            file = "compose-ubuntu/docker-compose.yml"
+            file = "docker-compose.yml"
         }
     }
 

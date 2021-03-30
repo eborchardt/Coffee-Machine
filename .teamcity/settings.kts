@@ -344,7 +344,7 @@ object NoSources : BuildType({
         script {
             scriptContent = """
                 mkdir banana
-                echo "blah blah blah" > banana/test.txt
+                echo "blah blah blah" >> banana/test.txt
             """.trimIndent()
             param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
             param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")

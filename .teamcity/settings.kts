@@ -356,6 +356,7 @@ object NoSources : BuildType({
 
     features {
         swabra {
+            enabled = false
             verbose = true
         }
     }

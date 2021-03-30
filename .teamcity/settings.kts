@@ -259,6 +259,8 @@ object BuildStreamjockey : BuildType({
 object Dockercompose : BuildType({
     name = "dockercompose"
 
+    artifactRules = "test.txt"
+
     vcs {
         root(HttpsGithubComEborchardtDockerComposeRefsHeadsMain)
     }

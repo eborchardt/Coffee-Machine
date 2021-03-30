@@ -1,6 +1,7 @@
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.dockerSupport
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.pullRequests
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.swabra
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.dockerCommand
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.dockerCompose
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
@@ -348,6 +349,11 @@ object NoSources : BuildType({
             param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
             param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")
             param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")
+        }
+    }
+
+    features {
+        swabra {
         }
     }
 })

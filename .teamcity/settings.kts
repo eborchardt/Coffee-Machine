@@ -40,6 +40,7 @@ project {
     vcsRoot(AzureCoffeeMachine)
     vcsRoot(HttpsGithubComEborchardtDockerComposeRefsHeadsMain)
     vcsRoot(GitBitbucketOrgEborchardtNomasterGit)
+    vcsRoot(HttpsGithubComJetBrainsTeamcityDockerSamplesGitRefsHeadsMaster)
     vcsRoot(BitbucketCloudSsh)
     vcsRoot(HttpsGithubComEborchardtHelloWorld)
 
@@ -48,6 +49,7 @@ project {
     buildType(PullRequestTest)
     buildType(SetVersion)
     buildType(BuildStreamjockey)
+    buildType(Build1)
     buildType(RestParameterChanging)
     buildType(MvnDeploy)
     buildType(Build)
@@ -205,6 +207,19 @@ object Build : BuildType({
     }
     
     disableSettings("RQ_1")
+})
+
+object Build1 : BuildType({
+    name = "Build (1)"
+
+    vcs {
+        root(HttpsGithubComJetBrainsTeamcityDockerSamplesGitRefsHeadsMaster)
+    }
+
+    triggers {
+        vcs {
+        }
+    }
 })
 
 object BuildStreamjockey : BuildType({
@@ -515,6 +530,13 @@ object HttpsGithubComEborchardtHelloWorld : GitVcsRoot({
         userName = "eborchardt"
         password = "credentialsJSON:a45b70d2-7e67-46ef-9713-4ccb0e20487e"
     }
+})
+
+object HttpsGithubComJetBrainsTeamcityDockerSamplesGitRefsHeadsMaster : GitVcsRoot({
+    name = "https://github.com/JetBrains/teamcity-docker-samples.git#refs/heads/master"
+    url = "https://github.com/JetBrains/teamcity-docker-samples.git"
+    branch = "refs/heads/master"
+    branchSpec = "refs/heads/*"
 })
 
 

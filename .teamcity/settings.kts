@@ -38,6 +38,7 @@ project {
 
     vcsRoot(Bitbucketcloudhttps)
     vcsRoot(AzureCoffeeMachine)
+    vcsRoot(HttpsGithubComEborchardtDockerComposeRefsHeadsMain)
     vcsRoot(GitBitbucketOrgEborchardtNomasterGit)
     vcsRoot(BitbucketCloudSsh)
     vcsRoot(HttpsGithubComEborchardtHelloWorld)
@@ -257,6 +258,10 @@ object BuildStreamjockey : BuildType({
 
 object Dockercompose : BuildType({
     name = "dockercompose"
+
+    vcs {
+        root(HttpsGithubComEborchardtDockerComposeRefsHeadsMain)
+    }
 
     steps {
         dockerCompose {
@@ -483,6 +488,16 @@ object GitBitbucketOrgEborchardtNomasterGit : GitVcsRoot({
     name = "git@bitbucket.org:eborchardt/nomaster.git"
     url = "git@bitbucket.org:eborchardt/nomaster.git"
     branch = "not-master"
+})
+
+object HttpsGithubComEborchardtDockerComposeRefsHeadsMain : GitVcsRoot({
+    name = "https://github.com/eborchardt/docker-compose#refs/heads/main"
+    url = "https://github.com/eborchardt/docker-compose"
+    branch = "refs/heads/main"
+    authMethod = password {
+        userName = "eborchardt"
+        password = "credentialsJSON:900946fa-7463-4a61-ba9d-8f50926bfc30"
+    }
 })
 
 object HttpsGithubComEborchardtHelloWorld : GitVcsRoot({

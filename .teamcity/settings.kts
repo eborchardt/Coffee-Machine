@@ -216,6 +216,12 @@ object Build1 : BuildType({
         root(HttpsGithubComJetBrainsTeamcityDockerSamplesGitRefsHeadsMaster)
     }
 
+    steps {
+        dockerCompose {
+            file = "compose-ubuntu/docker-compose.yml"
+        }
+    }
+
     triggers {
         vcs {
         }

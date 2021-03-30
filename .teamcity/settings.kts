@@ -213,7 +213,7 @@ object Build1 : BuildType({
     name = "Build (1)"
 
     vcs {
-        root(HttpsGithubComJetBrainsTeamcityDockerSamplesGitRefsHeadsMaster)
+        root(HttpsGithubComJetBrainsTeamcityDockerSamplesGitRefsHeadsMaster, "+:compose-ubuntu => .")
     }
 
     steps {

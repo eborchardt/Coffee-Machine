@@ -340,6 +340,8 @@ object MvnDeploy : BuildType({
 object NoSources : BuildType({
     name = "NoSources"
 
+    artifactRules = "banana/test.txt"
+
     steps {
         script {
             scriptContent = """

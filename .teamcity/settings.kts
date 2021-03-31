@@ -192,6 +192,13 @@ object Build : BuildType({
                 namesAndTags = "192.168.0.63:5000/figlet:ubuntu"
             }
         }
+        script {
+            id = "RUNNER_136"
+            scriptContent = "http://192.168.0.22/httpAuth/downloadBuildLog.html?buildId=%teamcity.build.id%"
+            param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
+            param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")
+            param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")
+        }
     }
 
     features {

@@ -145,6 +145,7 @@ project {
         }
     }
 
+    subProject(Subproject2)
     subProject(Subproject)
 }
 
@@ -582,4 +583,9 @@ object HttpsGithubComJetBrainsTeamcityDockerSamplesGitRefsHeadsMaster : GitVcsRo
 
 object Subproject : Project({
     name = "subproject"
+})
+
+
+object Subproject2 : Project({
+    name = "subproject2"
 })

@@ -583,6 +583,12 @@ object HttpsGithubComJetBrainsTeamcityDockerSamplesGitRefsHeadsMaster : GitVcsRo
 
 object Subproject : Project({
     name = "subproject"
+
+    buildType(Subproject_Blah)
+})
+
+object Subproject_Blah : BuildType({
+    name = "blah"
 })
 
 

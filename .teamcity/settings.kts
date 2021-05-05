@@ -589,6 +589,15 @@ object Subproject : Project({
 
 object Subproject_Blah : BuildType({
     name = "blah"
+
+    steps {
+        script {
+            scriptContent = """echo "hello""""
+            param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
+            param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")
+            param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")
+        }
+    }
 })
 
 

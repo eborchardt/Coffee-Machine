@@ -364,7 +364,7 @@ object NoSources : BuildType({
         powerShell {
             scriptMode = script {
                 content = """
-                    warning = write-warning "This is a warning. You have been warned."
+                    ${'$'}warning = write-warning "This is a warning. You have been warned."
                     "${'$'}([char]27)[${'$'}('1;35')m${'$'}warning${'$'}([char]27)[0m"
                     
                     

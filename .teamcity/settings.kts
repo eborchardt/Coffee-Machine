@@ -363,7 +363,10 @@ object NoSources : BuildType({
         }
         powerShell {
             scriptMode = script {
-                content = """write-warning "This is a warning. You have been warned." 1>2"""
+                content = """
+                    ${'$'}warning = write-warning "This is a warning. You have been warned."
+                    write-output "`e[5;36m${'$'}warning`e[0m";
+                """.trimIndent()
             }
             param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
             param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")

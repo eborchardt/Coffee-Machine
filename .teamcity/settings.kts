@@ -351,6 +351,10 @@ object NoSources : BuildType({
 
     artifactRules = "banana/test.txt"
 
+    params {
+        param("env.oe.version", "12.4")
+    }
+
     steps {
         script {
             scriptContent = """

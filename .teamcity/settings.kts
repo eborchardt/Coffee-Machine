@@ -352,7 +352,7 @@ object NoSources : BuildType({
     artifactRules = "banana/test.txt"
 
     params {
-        param("env.oe_version", "%env.oe.major.minor.sp.version%")
+        param("env.version", "%env.major.minor.version%")
         param("env.major.minor.version", "%env.major.version%.0")
         text("env.major.version", "", display = ParameterDisplay.PROMPT, allowEmpty = false)
     }

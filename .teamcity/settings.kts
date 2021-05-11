@@ -353,7 +353,7 @@ object NoSources : BuildType({
 
     params {
         param("env.oe_version", "%env.oe.major.minor.sp.version%")
-        param("env.oe.major.minor.sp.version", "%env.oe.version%.0")
+        param("env.major.minor.version", "%env.major.version%.0")
         param("env.oe.version", "12.4")
     }
 

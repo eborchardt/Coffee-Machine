@@ -144,6 +144,18 @@ project {
             key = "wU9Vj6tNkrf36KvzHu"
             clientSecret = "credentialsJSON:3706a51e-3626-4d5a-b5db-6b139b281536"
         }
+        feature {
+            id = "PROJECT_EXT_7"
+            type = "JetBrains.SharedResources"
+            param("values", """
+                abc123
+                def456
+                abc123
+                def456
+            """.trimIndent())
+            param("name", "TestOne")
+            param("type", "custom")
+        }
     }
 
     subProject(Subproject2)

@@ -170,6 +170,7 @@ project {
             param("run.var.teamcity.docker.cloud.server_url", "http://192.168.0.22")
             param("profileServerUrl", "")
             param("run.var.teamcity.docker.cloud.client_uuid", "aefd7693-3fd2-420c-9056-e087d743121a")
+            param("system.cloud.profile_id", "VRDC-1")
             param("total-work-time", "")
             param("description", "")
             param("cloud-code", "VRDC")
@@ -178,8 +179,8 @@ project {
             param("profileId", "VRDC-1")
             param("name", "test1")
             param("next-hour", "")
-            param("run.var.teamcity.docker.cloud.tested_image", """{"Administration":{"Version":4,"RmOnExit":true,"PullOnCreate":false,"MaxInstanceCount":2,"UseOfficialTCAgentImage":false,"RegistryUser":"eborchardt","RegistryPassword":"ACEAIQByADMAZAByAG8AcwBlAFM=","Profile":"blah"},"Container":{"Image":"ubuntu:18.04","HostConfig":{"OomKillDisable":false,"Privileged":false}},"Editor":{"MemoryUnit":"bytes","MemorySwapUnit":"bytes"}}""")
-            param("run.var.teamcity.docker.cloud.img_param", """[{"Administration":{"Version":4,"RmOnExit":true,"PullOnCreate":false,"MaxInstanceCount":2,"UseOfficialTCAgentImage":false,"RegistryUser":"eborchardt","RegistryPassword":"ACEAIQByADMAZAByAG8AcwBlAFM=","Profile":"blah"},"Container":{"Image":"ubuntu18.04","HostConfig":{"OomKillDisable":false,"Privileged":false}},"Editor":{"MemoryUnit":"bytes","MemorySwapUnit":"bytes"}}]""")
+            param("run.var.teamcity.docker.cloud.tested_image", """{"Administration":{"Version":4,"RmOnExit":true,"PullOnCreate":true,"MaxInstanceCount":2,"UseOfficialTCAgentImage":true,"Profile":"blah"},"Container":{"Image":"ubuntu18.04","HostConfig":{"OomKillDisable":false,"Privileged":false}},"Editor":{"MemoryUnit":"bytes","MemorySwapUnit":"bytes"}}""")
+            param("run.var.teamcity.docker.cloud.img_param", """[{"Administration":{"Version":4,"RmOnExit":true,"PullOnCreate":true,"MaxInstanceCount":2,"UseOfficialTCAgentImage":true,"Profile":"blah"},"Container":{"Image":"ubuntu18.04","HostConfig":{"OomKillDisable":false,"Privileged":false}},"Editor":{"MemoryUnit":"bytes","MemorySwapUnit":"bytes"}}]""")
             param("terminate-idle-time", "30")
         }
     }

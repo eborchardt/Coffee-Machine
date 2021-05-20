@@ -145,6 +145,13 @@ project {
             clientSecret = "credentialsJSON:3706a51e-3626-4d5a-b5db-6b139b281536"
         }
         feature {
+            id = "PROJECT_EXT_38"
+            type = "CloudImage"
+            param("profileId", "VRDC-1")
+            param("agent_pool_id", "-2")
+            param("source-id", "blah")
+        }
+        feature {
             id = "PROJECT_EXT_7"
             type = "JetBrains.SharedResources"
             param("values", """
@@ -155,6 +162,25 @@ project {
             """.trimIndent())
             param("name", "TestOne")
             param("type", "custom")
+        }
+        feature {
+            id = "VRDC-1"
+            type = "CloudProfile"
+            param("run.var.teamcity.docker.cloud.daemon_info", "")
+            param("run.var.teamcity.docker.cloud.server_url", "http://192.168.0.22")
+            param("profileServerUrl", "")
+            param("run.var.teamcity.docker.cloud.client_uuid", "aefd7693-3fd2-420c-9056-e087d743121a")
+            param("total-work-time", "")
+            param("description", "")
+            param("cloud-code", "VRDC")
+            param("enabled", "true")
+            param("run.var.teamcity.docker.cloud.instance_uri", "tcp://192.168.0.63")
+            param("profileId", "VRDC-1")
+            param("name", "test1")
+            param("next-hour", "")
+            param("run.var.teamcity.docker.cloud.tested_image", """{"Administration":{"Version":4,"RmOnExit":true,"PullOnCreate":false,"MaxInstanceCount":2,"UseOfficialTCAgentImage":false,"RegistryUser":"eborchardt","RegistryPassword":"ACEAIQByADMAZAByAG8AcwBlAFM=","Profile":"blah"},"Container":{"Image":"ubuntu:18.04","HostConfig":{"OomKillDisable":false,"Privileged":false}},"Editor":{"MemoryUnit":"bytes","MemorySwapUnit":"bytes"}}""")
+            param("run.var.teamcity.docker.cloud.img_param", """[{"Administration":{"Version":4,"RmOnExit":true,"PullOnCreate":false,"MaxInstanceCount":2,"UseOfficialTCAgentImage":false,"RegistryUser":"eborchardt","RegistryPassword":"ACEAIQByADMAZAByAG8AcwBlAFM=","Profile":"blah"},"Container":{"Image":"ubuntu18.04","HostConfig":{"OomKillDisable":false,"Privileged":false}},"Editor":{"MemoryUnit":"bytes","MemorySwapUnit":"bytes"}}]""")
+            param("terminate-idle-time", "30")
         }
     }
 

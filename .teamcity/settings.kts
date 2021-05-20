@@ -522,6 +522,10 @@ object SetVersion : BuildType({
             param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")
         }
     }
+
+    requirements {
+        exists("system.cloud.profile_id")
+    }
 })
 
 object LocalDockerSupport : Template({

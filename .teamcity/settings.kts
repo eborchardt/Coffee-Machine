@@ -174,14 +174,15 @@ project {
             param("total-work-time", "")
             param("description", "")
             param("cloud-code", "VRDC")
+            param("terminate-after-build", "true")
             param("enabled", "true")
             param("run.var.teamcity.docker.cloud.instance_uri", "tcp://192.168.0.63")
             param("profileId", "VRDC-1")
             param("name", "test1")
             param("next-hour", "")
-            param("run.var.teamcity.docker.cloud.tested_image", """{"Administration":{"Version":4,"RmOnExit":true,"PullOnCreate":true,"MaxInstanceCount":2,"UseOfficialTCAgentImage":true,"Profile":"blah"},"Container":{"Image":"ubuntu18.04","HostConfig":{"OomKillDisable":false,"Privileged":false}},"Editor":{"MemoryUnit":"bytes","MemorySwapUnit":"bytes"}}""")
+            param("run.var.teamcity.docker.cloud.tested_image", "{")
             param("run.var.teamcity.docker.cloud.img_param", """[{"Administration":{"Version":4,"RmOnExit":true,"PullOnCreate":true,"MaxInstanceCount":2,"UseOfficialTCAgentImage":true,"Profile":"blah"},"Container":{"Image":"ubuntu18.04","HostConfig":{"OomKillDisable":false,"Privileged":false}},"Editor":{"MemoryUnit":"bytes","MemorySwapUnit":"bytes"}}]""")
-            param("terminate-idle-time", "30")
+            param("terminate-idle-time", "1")
         }
     }
 

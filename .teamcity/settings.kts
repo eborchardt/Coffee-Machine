@@ -153,6 +153,13 @@ project {
             param("source-id", "blah")
         }
         feature {
+            id = "PROJECT_EXT_39"
+            type = "JetBrains.SharedResources"
+            param("quota", "1")
+            param("name", "Resource_with_Quota")
+            param("type", "quoted")
+        }
+        feature {
             id = "PROJECT_EXT_7"
             type = "JetBrains.SharedResources"
             param("values", """

@@ -51,6 +51,7 @@ project {
     buildType(PullRequestTest)
     buildType(SetVersion)
     buildType(BuildStreamjockey)
+    buildType(Test)
     buildType(NoSources)
     buildType(Build1)
     buildType(RestParameterChanging)
@@ -527,6 +528,10 @@ object SetVersion : BuildType({
     requirements {
         exists("system.cloud.profile_id")
     }
+})
+
+object Test : BuildType({
+    name = "test"
 })
 
 object LocalDockerSupport : Template({

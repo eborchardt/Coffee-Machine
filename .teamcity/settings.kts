@@ -34,7 +34,7 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 'Debug' option is available in the context menu for the task.
 */
 
-version = "2020.2"
+version = "2021.1"
 
 project {
 
@@ -47,6 +47,7 @@ project {
     vcsRoot(HttpsGithubComEborchardtHelloWorld)
 
     buildType(ManualDeploy)
+    buildType(Runhelloworld)
     buildType(Dockercompose)
     buildType(PullRequestTest)
     buildType(SetVersion)
@@ -272,7 +273,7 @@ object Build1 : BuildType({
     name = "Build (1)"
 
     vcs {
-        root(HttpsGithubComJetBrainsTeamcityDockerSamplesGitRefsHeadsMaster, "+:compose-ubuntu => .")
+        root(HttpsGithubComJetBrainsTeamcityDockerSamplesGitRefsHeadsMaster, "+:compose-ubuntu => .", "+:banana")
     }
 
     steps {
@@ -516,6 +517,34 @@ object RestParameterChanging : BuildType({
     }
 })
 
+object Runhelloworld : BuildType({
+    name = "runhelloworld"
+
+    steps {
+        script {
+            scriptContent = "docker run --rm hello-world"
+            param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
+            param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")
+            param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")
+        }
+        dockerCommand {
+            executionMode = BuildStep.ExecutionMode.ALWAYS
+            commandType = other {
+                subCommand = "run"
+                commandArgs = "--rm hello-world"
+            }
+        }
+    }
+
+    features {
+        dockerSupport {
+            loginToRegistry = on {
+                dockerRegistryId = "PROJECT_EXT_20"
+            }
+        }
+    }
+})
+
 object SetVersion : BuildType({
     name = "set version"
 
@@ -590,6 +619,7 @@ object AzureCoffeeMachine : GitVcsRoot({
         userName = "administrator"
         password = "credentialsJSON:9399bc85-a065-4f7a-9926-e5a206f08856"
     }
+    param("useAlternates", "true")
 })
 
 object BitbucketCloudSsh : GitVcsRoot({
@@ -600,6 +630,7 @@ object BitbucketCloudSsh : GitVcsRoot({
     authMethod = uploadedKey {
         uploadedKey = "bitbucket"
     }
+    param("useAlternates", "true")
 })
 
 object Bitbucketcloudhttps : GitVcsRoot({
@@ -610,6 +641,7 @@ object Bitbucketcloudhttps : GitVcsRoot({
         userName = "eborchardt"
         password = "credentialsJSON:6c2aafc1-51b7-49ba-8b40-4902322c8350"
     }
+    param("useAlternates", "true")
     param("oauthProviderId", "PROJECT_EXT_37")
 })
 
@@ -617,6 +649,7 @@ object GitBitbucketOrgEborchardtNomasterGit : GitVcsRoot({
     name = "git@bitbucket.org:eborchardt/nomaster.git"
     url = "git@bitbucket.org:eborchardt/nomaster.git"
     branch = "not-master"
+    param("useAlternates", "true")
 })
 
 object HttpsGithubComEborchardtDockerComposeRefsHeadsMain : GitVcsRoot({
@@ -627,6 +660,7 @@ object HttpsGithubComEborchardtDockerComposeRefsHeadsMain : GitVcsRoot({
         userName = "eborchardt"
         password = "credentialsJSON:900946fa-7463-4a61-ba9d-8f50926bfc30"
     }
+    param("useAlternates", "true")
 })
 
 object HttpsGithubComEborchardtHelloWorld : GitVcsRoot({
@@ -642,6 +676,7 @@ object HttpsGithubComEborchardtHelloWorld : GitVcsRoot({
         userName = "eborchardt"
         password = "credentialsJSON:a45b70d2-7e67-46ef-9713-4ccb0e20487e"
     }
+    param("useAlternates", "true")
 })
 
 object HttpsGithubComJetBrainsTeamcityDockerSamplesGitRefsHeadsMaster : GitVcsRoot({
@@ -649,6 +684,7 @@ object HttpsGithubComJetBrainsTeamcityDockerSamplesGitRefsHeadsMaster : GitVcsRo
     url = "https://github.com/JetBrains/teamcity-docker-samples.git"
     branch = "refs/heads/master"
     branchSpec = "refs/heads/*"
+    param("useAlternates", "true")
 })
 
 

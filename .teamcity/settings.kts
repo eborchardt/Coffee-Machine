@@ -1,5 +1,6 @@
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.dockerSupport
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.investigationsAutoAssigner
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.pullRequests
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.swabra
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.dockerCommand
@@ -327,6 +328,10 @@ object BuildStreamjockey : BuildType({
             loginToRegistry = on {
                 dockerRegistryId = "PROJECT_EXT_20"
             }
+        }
+        investigationsAutoAssigner {
+            id = "InvestigationsAutoAssigner"
+            defaultAssignee = "Administrator"
         }
     }
 

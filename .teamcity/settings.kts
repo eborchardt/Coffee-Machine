@@ -454,7 +454,7 @@ object NotificationTests : BuildType({
 
     features {
         investigationsAutoAssigner {
-            defaultAssignee = "testing"
+            defaultAssignee = "administrator"
         }
     }
 })

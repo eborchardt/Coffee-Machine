@@ -331,7 +331,7 @@ object BuildStreamjockey : BuildType({
         }
         investigationsAutoAssigner {
             id = "InvestigationsAutoAssigner"
-            defaultAssignee = "administrator"
+            defaultAssignee = "testing"
         }
     }
 

@@ -47,17 +47,18 @@ project {
     vcsRoot(BitbucketCloudSsh)
     vcsRoot(HttpsGithubComEborchardtHelloWorld)
 
-    buildType(ManualDeploy)
     buildType(Runhelloworld)
-    buildType(Dockercompose)
-    buildType(PullRequestTest)
     buildType(SetVersion)
     buildType(BuildStreamjockey)
-    buildType(Test)
+    buildType(NotificationTests)
     buildType(NoSources)
     buildType(Build1)
     buildType(RestParameterChanging)
     buildType(MvnDeploy)
+    buildType(ManualDeploy)
+    buildType(Dockercompose)
+    buildType(PullRequestTest)
+    buildType(Test)
     buildType(Build)
 
     template(LocalDockerSupport)
@@ -437,6 +438,10 @@ object NoSources : BuildType({
             verbose = true
         }
     }
+})
+
+object NotificationTests : BuildType({
+    name = "Notification Tests"
 })
 
 object PullRequestTest : BuildType({

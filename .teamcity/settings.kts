@@ -301,6 +301,7 @@ object BuildStreamjockey : BuildType({
     steps {
         dockerCommand {
             id = "RUNNER_1"
+            enabled = false
             commandType = build {
                 source = content {
                     content = """

@@ -316,6 +316,7 @@ object BuildStreamjockey : BuildType({
         }
         dockerCommand {
             id = "RUNNER_124"
+            enabled = false
             commandType = push {
                 namesAndTags = "192.168.0.63:5000/figlet:ubuntu"
             }

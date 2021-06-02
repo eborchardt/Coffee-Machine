@@ -442,6 +442,12 @@ object NoSources : BuildType({
 
 object NotificationTests : BuildType({
     name = "Notification Tests"
+
+    features {
+        investigationsAutoAssigner {
+            defaultAssignee = "testing"
+        }
+    }
 })
 
 object PullRequestTest : BuildType({

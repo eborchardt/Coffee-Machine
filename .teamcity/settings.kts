@@ -443,6 +443,15 @@ object NoSources : BuildType({
 object NotificationTests : BuildType({
     name = "Notification Tests"
 
+    steps {
+        script {
+            scriptContent = "exit 1"
+            param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
+            param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")
+            param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")
+        }
+    }
+
     features {
         investigationsAutoAssigner {
             defaultAssignee = "testing"

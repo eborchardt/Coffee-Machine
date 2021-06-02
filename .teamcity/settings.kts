@@ -446,7 +446,7 @@ object NotificationTests : BuildType({
 
     steps {
         script {
-            scriptContent = "exit 1"
+            scriptContent = "exit 0"
             param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
             param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")
             param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")

@@ -629,6 +629,10 @@ object Teststest : BuildType({
             dockerImage = "python"
         }
     }
+
+    failureConditions {
+        testFailure = false
+    }
 })
 
 object LocalDockerSupport : Template({

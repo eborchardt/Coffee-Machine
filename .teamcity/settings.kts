@@ -628,6 +628,12 @@ object Teststest : BuildType({
             dockerImagePlatform = PythonBuildStep.ImagePlatform.Linux
             dockerImage = "python"
         }
+        script {
+            scriptContent = "echo > test.txt"
+            param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
+            param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")
+            param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")
+        }
     }
 
     failureConditions {

@@ -56,6 +56,7 @@ project {
     buildType(RestParameterChanging)
     buildType(MvnDeploy)
     buildType(ManualDeploy)
+    buildType(Teststest)
     buildType(Dockercompose)
     buildType(PullRequestTest)
     buildType(Test)
@@ -594,6 +595,10 @@ object SetVersion : BuildType({
 
 object Test : BuildType({
     name = "test"
+})
+
+object Teststest : BuildType({
+    name = "teststest"
 })
 
 object LocalDockerSupport : Template({

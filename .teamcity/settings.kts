@@ -6,6 +6,7 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.swabra
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.dockerCommand
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.dockerCompose
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.powerShell
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.python
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.azureDevopsConnection
 import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.bitbucketCloudConnection
@@ -599,6 +600,30 @@ object Test : BuildType({
 
 object Teststest : BuildType({
     name = "teststest"
+
+    steps {
+        python {
+            command = script {
+                content = """
+                    sys.stdout.write(
+                    "##teamcity[testStarted name='test1']\n"
+                    )
+                    sys.stdout.flush()
+                    sys.stdout.write(
+                    "##teamcity[testFailed name='test1' message='Check log']\n"
+                    )
+                    sys.stdout.flush()
+                    sys.stdout.write(
+                    "##teamcity[testMetadata testName='test1' type='artifact' value='test.txt']\n"
+                    )
+                    sys.stdout.flush()
+                    
+                    sys.stdout.write("##teamcity[testFinished name='test1']\n")
+                    sys.stdout.flush()
+                """.trimIndent()
+            }
+        }
+    }
 })
 
 object LocalDockerSupport : Template({

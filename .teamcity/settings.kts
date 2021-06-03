@@ -602,6 +602,8 @@ object Test : BuildType({
 object Teststest : BuildType({
     name = "teststest"
 
+    artifactRules = "test.txt"
+
     steps {
         script {
             scriptContent = "echo > test.txt"

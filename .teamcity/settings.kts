@@ -603,6 +603,12 @@ object Teststest : BuildType({
     name = "teststest"
 
     steps {
+        script {
+            scriptContent = "echo > test.txt"
+            param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
+            param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")
+            param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")
+        }
         python {
             command = script {
                 content = """
@@ -627,12 +633,6 @@ object Teststest : BuildType({
             }
             dockerImagePlatform = PythonBuildStep.ImagePlatform.Linux
             dockerImage = "python"
-        }
-        script {
-            scriptContent = "echo > test.txt"
-            param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
-            param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")
-            param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")
         }
     }
 

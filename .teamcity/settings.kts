@@ -606,6 +606,8 @@ object Teststest : BuildType({
         python {
             command = script {
                 content = """
+                    import sys
+                    
                     sys.stdout.write(
                     "##teamcity[testStarted name='test1']\n"
                     )

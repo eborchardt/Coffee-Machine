@@ -602,7 +602,10 @@ object Test : BuildType({
         powerShell {
             minRequiredVersion = "2"
             scriptMode = script {
-                content = """Write-Host "Hello, World!""""
+                content = """
+                    Write-Host "Hello, World!"
+                    ${'$'}PSVersionTable
+                """.trimIndent()
             }
             param("jetbrains_powershell_script_file", "test.ps1")
             param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")

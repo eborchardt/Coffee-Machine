@@ -610,6 +610,14 @@ object Test : BuildType({
             param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")
         }
     }
+
+    features {
+        dockerSupport {
+            loginToRegistry = on {
+                dockerRegistryId = "PROJECT_EXT_20"
+            }
+        }
+    }
 })
 
 object Teststest : BuildType({

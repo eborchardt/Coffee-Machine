@@ -606,7 +606,7 @@ object Test : BuildType({
                     ${'$'}PSVersionTable
                 """.trimIndent()
             }
-            args = "-Version 2"
+            args = "-version 2"
             param("jetbrains_powershell_script_file", "test.ps1")
             param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
             param("plugin.docker.imageId", "mcr.microsoft.com/powershell")

@@ -600,7 +600,7 @@ object Test : BuildType({
 
     steps {
         powerShell {
-            minRequiredVersion = "2"
+            minRequiredVersion = "2.0"
             scriptMode = script {
                 content = """
                     Write-Host "Hello, World!"

@@ -597,6 +597,19 @@ object SetVersion : BuildType({
 
 object Test : BuildType({
     name = "test"
+
+    steps {
+        powerShell {
+            scriptMode = script {
+                content = """Write-Host "Hello, World!""""
+            }
+            param("jetbrains_powershell_script_file", "test.ps1")
+            param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
+            param("plugin.docker.imageId", "mcr.microsoft.com/powershell")
+            param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")
+            param("org.jfrog.artifactory.selectedDeployableServer.uploadSpecSource", "Job configuration")
+        }
+    }
 })
 
 object Teststest : BuildType({

@@ -42,6 +42,7 @@ version = "2021.1"
 project {
 
     vcsRoot(Bitbucketcloudhttps)
+    vcsRoot(HttpsGithubComEborchardtKtssettingsGit)
     vcsRoot(AzureCoffeeMachine)
     vcsRoot(HttpsGithubComEborchardtDockerComposeRefsHeadsMain)
     vcsRoot(GitBitbucketOrgEborchardtNomasterGit)
@@ -775,6 +776,16 @@ object HttpsGithubComEborchardtHelloWorld : GitVcsRoot({
         password = "credentialsJSON:a45b70d2-7e67-46ef-9713-4ccb0e20487e"
     }
     param("useAlternates", "true")
+})
+
+object HttpsGithubComEborchardtKtssettingsGit : GitVcsRoot({
+    name = "https://github.com/eborchardt/ktssettings.git"
+    url = "https://github.com/eborchardt/ktssettings"
+    branch = "refs/heads/main"
+    authMethod = password {
+        userName = "eborchardt"
+        password = "credentialsJSON:900946fa-7463-4a61-ba9d-8f50926bfc30"
+    }
 })
 
 object HttpsGithubComJetBrainsTeamcityDockerSamplesGitRefsHeadsMaster : GitVcsRoot({

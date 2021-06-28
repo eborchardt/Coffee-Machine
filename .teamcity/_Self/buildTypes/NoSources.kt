@@ -10,7 +10,7 @@ object NoSources : BuildType({
 
     artifactRules = """
         banana/test.txt
-        index.txt
+        index.html
     """.trimIndent()
 
     params {

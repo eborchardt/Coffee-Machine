@@ -3,6 +3,7 @@ package _Self
 import _Self.buildTypes.*
 import _Self.vcsRoots.*
 import _Self.buildTypes.Build
+import _Self.buildTypes.NoSources
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.Project
 import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.ProjectReportTab
@@ -157,6 +158,13 @@ object Project : Project({
             title = "BuildReport"
             startPage = "index.txt"
             buildType = "${Build.id}"
+            sourceBuildRule = ProjectReportTab.SourceBuildRule.LAST_SUCCESSFUL
+        }
+        projectReportTab {
+            id = "PROJECT_EXT_48"
+            title = "BuildReport2"
+            startPage = "index.txt"
+            buildType = "${NoSources.id}"
             sourceBuildRule = ProjectReportTab.SourceBuildRule.LAST_SUCCESSFUL
         }
         feature {

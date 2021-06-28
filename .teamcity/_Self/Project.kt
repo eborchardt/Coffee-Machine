@@ -152,7 +152,7 @@ object Project : Project({
             startPage = "index.txt"
         }
         buildReportTab {
-            id = "PROJECT_EXT_49"
+            id = "PROJECT_EXT_50"
             title = "BuildReport"
             startPage = "index.html"
         }        

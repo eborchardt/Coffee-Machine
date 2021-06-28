@@ -155,7 +155,7 @@ object Project : Project({
         projectReportTab {
             id = "PROJECT_EXT_47"
             title = "BuildReport"
-            startPage = "index.xml"
+            startPage = "index.txt"
             buildType = "${Build.id}"
             sourceBuildRule = ProjectReportTab.SourceBuildRule.LAST_SUCCESSFUL
         }

@@ -2,7 +2,6 @@ package _Self
 
 import _Self.buildTypes.*
 import _Self.vcsRoots.*
-import _Self.buildTypes.Build
 import _Self.buildTypes.NoSources
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.Project
@@ -150,7 +149,7 @@ object Project : Project({
             id = "PROJECT_EXT_46"
             title = "BuildReport"
             startPage = "index.html"
-            buildType = "${Build.id}"
+            buildType = "${NoSources.id}"
             sourceBuildRule = ProjectReportTab.SourceBuildRule.LAST_SUCCESSFUL
         }
         projectReportTab {

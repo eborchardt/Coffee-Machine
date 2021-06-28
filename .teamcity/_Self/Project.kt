@@ -152,6 +152,13 @@ object Project : Project({
             buildType = "${Build.id}"
             sourceBuildRule = ProjectReportTab.SourceBuildRule.LAST_SUCCESSFUL
         }
+        projectReportTab {
+            id = "PROJECT_EXT_47"
+            title = "BuildReport2"
+            startPage = "index.xml"
+            buildType = "${Build.id}"
+            sourceBuildRule = ProjectReportTab.SourceBuildRule.LAST_SUCCESSFUL
+        }
         feature {
             id = "PROJECT_EXT_7"
             type = "JetBrains.SharedResources"

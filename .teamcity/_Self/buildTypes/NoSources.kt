@@ -16,7 +16,7 @@ object NoSources : BuildType({
     params {
         param("env.version", "%env.major.minor.version%")
         param("env.major.minor.version", "%env.major.version%.0")
-        text("env.major.version", "", display = ParameterDisplay.PROMPT, allowEmpty = false)
+        text("env.major.version", "1", allowEmpty = false)
     }
 
     steps {

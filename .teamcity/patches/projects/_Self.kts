@@ -21,7 +21,7 @@ changeProject(DslContext.projectId) {
             }
         }
         feature1.apply {
-            startPage = "(index.txt|index.html)"
+            startPage = "index.txt"
         }
     }
 }

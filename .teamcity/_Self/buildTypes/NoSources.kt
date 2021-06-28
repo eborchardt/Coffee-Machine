@@ -8,7 +8,10 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
 object NoSources : BuildType({
     name = "NoSources"
 
-    artifactRules = "banana/test.txt"
+    artifactRules = """
+        banana/test.txt
+        index.txt
+    """.trimIndent()
 
     params {
         param("env.version", "%env.major.minor.version%")

@@ -149,8 +149,13 @@ object Project : Project({
         buildReportTab {
             id = "PROJECT_EXT_49"
             title = "BuildReport"
-            startPage = "index.txt|index.html"
+            startPage = "index.txt"
         }
+        buildReportTab {
+            id = "PROJECT_EXT_49"
+            title = "BuildReport"
+            startPage = "index.html"
+        }        
         feature {
             id = "PROJECT_EXT_7"
             type = "JetBrains.SharedResources"

@@ -146,29 +146,10 @@ object Project : Project({
             param("name", "Resource_with_Quota")
             param("type", "quoted")
         }
-        projectReportTab {
-            id = "PROJECT_EXT_46"
-            title = "BuildReport"
-            startPage = "index.html"
-            buildType = "${NoSources.id}"
-            sourceBuildRule = ProjectReportTab.SourceBuildRule.LAST_SUCCESSFUL
-        }
-        projectReportTab {
-            id = "PROJECT_EXT_48"
-            title = "BuildReport"
-            startPage = "index.txt"
-            buildType = "${NoSources.id}"
-            sourceBuildRule = ProjectReportTab.SourceBuildRule.LAST_SUCCESSFUL
-        }
         buildReportTab {
             id = "PROJECT_EXT_49"
             title = "BuildReport"
-            startPage = "index.txt"
-        }
-        buildReportTab {
-            id = "PROJECT_EXT_50"
-            title = "BuildReport"
-            startPage = "index.html"
+            startPage = "index.txt|index.html"
         }
         feature {
             id = "PROJECT_EXT_7"

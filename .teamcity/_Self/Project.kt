@@ -8,6 +8,7 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.Project
 import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.ProjectReportTab
 import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.azureDevopsConnection
 import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.bitbucketCloudConnection
+import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.buildReportTab
 import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.dockerRegistry
 import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.nuGetFeed
 import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.projectReportTab
@@ -158,6 +159,11 @@ object Project : Project({
             startPage = "index.txt"
             buildType = "${NoSources.id}"
             sourceBuildRule = ProjectReportTab.SourceBuildRule.LAST_SUCCESSFUL
+        }
+        buildReportTab {
+            id = "PROJECT_EXT_49"
+            title = "BuildReport"
+            startPage = "index.txt"
         }
         feature {
             id = "PROJECT_EXT_7"

@@ -167,7 +167,7 @@ object Project : Project({
         }
         buildReportTab {
             id = "PROJECT_EXT_50"
-            title = "BuildReport2"
+            title = "BuildReport"
             startPage = "index.html"
         }
         feature {

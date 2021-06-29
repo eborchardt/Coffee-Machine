@@ -9,7 +9,7 @@ object Dockercompose : BuildType({
     artifactRules = "test.txt"
 
     params {
-        param("system.teamcity.agent.ensure.free.temp.space", "90gb")
+        param("system.teamcity.agent.ensure.free.space", "90gb")
     }
 
     vcs {

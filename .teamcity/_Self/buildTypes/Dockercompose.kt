@@ -18,6 +18,7 @@ object Dockercompose : BuildType({
 
     steps {
         dockerCompose {
+            enabled = false
             file = "docker-compose.yml"
         }
     }

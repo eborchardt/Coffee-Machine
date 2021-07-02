@@ -45,10 +45,7 @@ create(RelativeId("As"), BuildType({
             """.trimIndent())
             param("xUnitNet.dotCover.enable", "true")
             param("xUnitNet.nugetExe", "%teamcity.tool.NuGet.CommandLine.DEFAULT%")
-            param("xUnitNet.assembliesPath", """
-                bin\*.testadapter.dll
-                bin\*.net452.dll
-            """.trimIndent())
+            param("xUnitNet.assembliesPath", """**\bin\*.dll""")
             param("xUnitNet.dotCover.skipProcesses", "")
             param("xUnitNet.dotCover.exportReport", "false")
             param("xUnitNet.notrait", "Category=Integration")

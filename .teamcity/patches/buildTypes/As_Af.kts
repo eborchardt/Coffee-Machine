@@ -2,6 +2,7 @@ package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.BuildType
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.dotnetBuild
 import jetbrains.buildServer.configs.kotlin.v2019_2.ui.*
 
 /*
@@ -60,6 +61,14 @@ create(RelativeId("As"), BuildType({
                 </Filters>
             """.trimIndent())
             param("xUnitNet.executable.args", "")
+        }
+        dotnetBuild {
+            projects = "AssemblyFixtureExample/AssemblyFixtureExample.csproj"
+            framework = "net452"
+            configuration = "Debug"
+            outputDir = "bin"
+            sdk = "4.5.2"
+            param("dotNetCoverage.dotCover.home.path", "%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%")
         }
     }
 }))

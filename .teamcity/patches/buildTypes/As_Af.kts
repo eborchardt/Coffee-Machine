@@ -13,6 +13,10 @@ create(RelativeId("As"), BuildType({
     id("As_Af")
     name = "af"
 
+    vcs {
+        root(RelativeId("As_HttpsGithubComXunitSamplesXunitGit"))
+    }
+
     steps {
         step {
             type = "MRPP_xunit_dotcover"

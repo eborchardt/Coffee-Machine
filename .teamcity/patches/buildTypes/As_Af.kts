@@ -31,13 +31,13 @@ create(RelativeId("As"), BuildType({
             """.trimIndent())
             param("xUnitNet.dotCover.enable", "true")
             param("xUnitNet.nugetExe", "%teamcity.tool.NuGet.CommandLine.DEFAULT%")
-            param("xUnitNet.assembliesPath", "*.dll")
+            param("xUnitNet.assembliesPath", """**\bin\**\*.Test.dll""")
             param("xUnitNet.dotCover.skipProcesses", "")
             param("xUnitNet.dotCover.exportReport", "false")
             param("xUnitNet.notrait", "Category=Integration")
             param("xUnitNet.nugetSource", "http://www.nuget.org/api/v2/")
             param("xUnitNet.trait", "")
-            param("xUnitNet.executable", "xunit.console.exe")
+            param("xUnitNet.executable", """net452\xunit.console.exe""")
             param("xUnitNet.dotCover.Filters", """
                 <!-- Coverage filters. It's possible to use asterisks as wildcard symbols. -->
                 <Filters>

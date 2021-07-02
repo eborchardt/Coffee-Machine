@@ -24,6 +24,7 @@ create(RelativeId("As"), BuildType({
             framework = "net452"
             configuration = "Debug"
             outputDir = "bin"
+            versionSuffix = "%build.number%"
             sdk = "4.5.2"
             param("dotNetCoverage.dotCover.home.path", "%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%")
         }

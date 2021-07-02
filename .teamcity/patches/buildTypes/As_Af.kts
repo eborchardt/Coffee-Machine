@@ -32,13 +32,13 @@ create(RelativeId("As"), BuildType({
             param("xUnitNet.dotCover.enable", "true")
             param("xUnitNet.nugetExe", "%teamcity.tool.NuGet.CommandLine.DEFAULT%")
             param("xUnitNet.assembliesPath", """
-                D:\BuildAgent\work\509a440f2d235307\xunit.runner.console.2.4.1\tools\net452\xunit.console.exe 
-                D:\BuildAgent\work\509a440f2d235307\xunit.runner.console.2.4.1\tools\net46\xunit.console.exe 
-                D:\BuildAgent\work\509a440f2d235307\xunit.runner.console.2.4.1\tools\net461\xunit.console.exe 
-                D:\BuildAgent\work\509a440f2d235307\xunit.runner.console.2.4.1\tools\net462\xunit.console.exe 
-                D:\BuildAgent\work\509a440f2d235307\xunit.runner.console.2.4.1\tools\net47\xunit.console.exe 
-                D:\BuildAgent\work\509a440f2d235307\xunit.runner.console.2.4.1\tools\net471\xunit.console.exe 
-                D:\BuildAgent\work\509a440f2d235307\xunit.runner.console.2.4.1\tools\net472\xunit.console.exe
+                xunit.runner.console.2.4.1\tools\net452\xunit.console.exe 
+                xunit.runner.console.2.4.1\tools\net46\xunit.console.exe 
+                xunit.runner.console.2.4.1\tools\net461\xunit.console.exe 
+                xunit.runner.console.2.4.1\tools\net462\xunit.console.exe 
+                xunit.runner.console.2.4.1\tools\net47\xunit.console.exe 
+                xunit.runner.console.2.4.1\tools\net471\xunit.console.exe 
+                xunit.runner.console.2.4.1\tools\net472\xunit.console.exe
             """.trimIndent())
             param("xUnitNet.dotCover.skipProcesses", "")
             param("xUnitNet.dotCover.exportReport", "false")

@@ -2,7 +2,6 @@ package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.BuildType
-import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.swabra
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.dotnetBuild
 import jetbrains.buildServer.configs.kotlin.v2019_2.ui.*
 
@@ -70,12 +69,6 @@ create(RelativeId("As"), BuildType({
                 </Filters>
             """.trimIndent())
             param("xUnitNet.executable.args", "")
-        }
-    }
-
-    features {
-        swabra {
-            forceCleanCheckout = true
         }
     }
 }))

@@ -44,7 +44,7 @@ create(RelativeId("As"), BuildType({
                 </AttributeFilters>
             """.trimIndent())
             param("xUnitNet.dotCover.enable", "true")
-            param("xUnitNet.nugetExe", "%teamcity.tool.JetBrains.dotCover.CommandLineTools.bundled%")
+            param("xUnitNet.nugetExe", "%teamcity.tool.NuGet.CommandLine.DEFAULT%")
             param("xUnitNet.assembliesPath", """bin\*.dll""")
             param("xUnitNet.dotCover.skipProcesses", "")
             param("xUnitNet.dotCover.exportReport", "false")

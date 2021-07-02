@@ -54,7 +54,16 @@ create(RelativeId("As"), BuildType({
             param("xUnitNet.notrait", "Category=Integration")
             param("xUnitNet.nugetSource", "http://www.nuget.org/api/v2/")
             param("xUnitNet.trait", "")
-            param("xUnitNet.executable", """net452\xunit.console.exe""")
+            param("xUnitNet.executable", """
+                net452\xunit.console.exe
+                net452\xunit.console.exe 
+                net46\xunit.console.exe 
+                net461\xunit.console.exe 
+                net462\xunit.console.exe 
+                net47\xunit.console.exe 
+                net471\xunit.console.exe 
+                net472\xunit.console.exe
+            """.trimIndent())
             param("xUnitNet.dotCover.Filters", """
                 <!-- Coverage filters. It's possible to use asterisks as wildcard symbols. -->
                 <Filters>

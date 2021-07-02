@@ -19,6 +19,14 @@ create(RelativeId("As"), BuildType({
     }
 
     steps {
+        dotnetBuild {
+            projects = "AssemblyFixtureExample/AssemblyFixtureExample.csproj"
+            framework = "net452"
+            configuration = "Debug"
+            outputDir = "bin"
+            sdk = "4.5.2"
+            param("dotNetCoverage.dotCover.home.path", "%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%")
+        }
         step {
             type = "MRPP_xunit_dotcover"
             executionMode = BuildStep.ExecutionMode.DEFAULT
@@ -61,14 +69,6 @@ create(RelativeId("As"), BuildType({
                 </Filters>
             """.trimIndent())
             param("xUnitNet.executable.args", "")
-        }
-        dotnetBuild {
-            projects = "AssemblyFixtureExample/AssemblyFixtureExample.csproj"
-            framework = "net452"
-            configuration = "Debug"
-            outputDir = "bin"
-            sdk = "4.5.2"
-            param("dotNetCoverage.dotCover.home.path", "%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%")
         }
     }
 }))

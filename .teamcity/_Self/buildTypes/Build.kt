@@ -67,6 +67,7 @@ object Build : BuildType({
         step {
             id = "RUNNER_156"
             type = "dotnet-tools-inspectcode"
+            enabled = false
             param("dotnet-tools-inspectcode.solution", ".about-version.sln")
             param("jetbrains.resharper-clt.platform", "x64")
             param("jetbrains.resharper-clt.clt-path", "%teamcity.tool.jetbrains.resharper-clt.2021.2.0%")

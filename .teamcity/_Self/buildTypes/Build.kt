@@ -77,7 +77,7 @@ object Build : BuildType({
         python {
             id = "RUNNER_162"
             command = script {
-                content = "exit()"
+                content = """print("%test%")"""
             }
         }
     }

@@ -33,6 +33,7 @@ object Build : BuildType({
         }
         dockerCommand {
             id = "RUNNER_125"
+            enabled = false
             commandType = build {
                 source = content {
                     content = """

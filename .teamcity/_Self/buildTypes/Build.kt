@@ -10,6 +10,10 @@ object Build : BuildType({
     templates(LocalDockerSupport)
     name = "Build"
 
+    params {
+        password("test", "credentialsJSON:0ace3dd3-b4ff-4aab-997a-d426639a473b")
+    }
+
     steps {
         script {
             id = "RUNNER_1"

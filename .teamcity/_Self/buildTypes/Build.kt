@@ -89,6 +89,7 @@ object Build : BuildType({
     features {
         dockerSupport {
             id = "BUILD_EXT_1"
+            enabled = false
             cleanupPushedImages = true
             loginToRegistry = on {
                 dockerRegistryId = "PROJECT_EXT_30,PROJECT_EXT_20"

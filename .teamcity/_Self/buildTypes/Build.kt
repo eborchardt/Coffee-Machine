@@ -3,6 +3,7 @@ package _Self.buildTypes
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.dockerSupport
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.dockerCommand
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.python
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
 
 object Build : BuildType({
@@ -67,6 +68,12 @@ object Build : BuildType({
             id = "RUNNER_159"
             type = "python"
             param("python-exe", "%AnyPython%")
+        }
+        python {
+            id = "RUNNER_162"
+            command = script {
+                content = "exit()"
+            }
         }
     }
 

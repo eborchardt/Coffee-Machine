@@ -71,6 +71,7 @@ object Build : BuildType({
         step {
             id = "RUNNER_159"
             type = "python"
+            param("python-script-code", """print("%test%")""")
             param("python-exe", "%AnyPython%")
         }
         python {

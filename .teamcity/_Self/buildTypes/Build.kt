@@ -63,6 +63,11 @@ object Build : BuildType({
             param("jetbrains.resharper-clt.platform", "x64")
             param("jetbrains.resharper-clt.clt-path", "%teamcity.tool.jetbrains.resharper-clt.2021.2.0%")
         }
+        step {
+            id = "RUNNER_159"
+            type = "python"
+            param("python-exe", "%AnyPython%")
+        }
     }
 
     features {

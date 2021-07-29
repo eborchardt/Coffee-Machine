@@ -58,6 +58,7 @@ object Build : BuildType({
         }
         script {
             id = "RUNNER_136"
+            enabled = false
             scriptContent = "http://192.168.0.22/httpAuth/downloadBuildLog.html?buildId=%teamcity.build.id%"
             param("org.jfrog.artifactory.selectedDeployableServer.downloadSpecSource", "Job configuration")
             param("org.jfrog.artifactory.selectedDeployableServer.useSpecs", "false")

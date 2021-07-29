@@ -80,6 +80,9 @@ object Build : BuildType({
         }
         python {
             id = "RUNNER_162"
+            pythonVersion = customPython {
+                executable = """C:\Program Files\Python38\python.exe"""
+            }
             command = script {
                 content = """print("%test%")"""
             }

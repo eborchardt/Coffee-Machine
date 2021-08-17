@@ -87,6 +87,50 @@ object Build : BuildType({
                 content = """print("%test%")"""
             }
         }
+        step {
+            id = "RUNNER_174"
+            type = "MRPP_xunit_dotcover"
+            executionMode = BuildStep.ExecutionMode.DEFAULT
+            param("xUnitNet.dotCover.reportType", "HTML")
+            param("xUnitNet.executable.legacymode", "false")
+            param("xUnitNet.dotCover.reportOutputFile", "dotCoverReport.html")
+            param("xUnitNet.assembliesExcludePath", "")
+            param("xUnitNet.dotCover.AttributeFilters", """
+                <!-- Attribute filters. It's possible to use asterisks as wildcard symbols. -->
+                <AttributeFilters>
+                  <AttributeFilterEntry>System.CodeDom.Compiler.GeneratedCodeAttribute</AttributeFilterEntry>
+                  <AttributeFilterEntry>System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute</AttributeFilterEntry>
+                  <AttributeFilterEntry>System.ObsoleteAttribute</AttributeFilterEntry>
+                </AttributeFilters>
+            """.trimIndent())
+            param("xUnitNet.dotCover.enable", "true")
+            param("xUnitNet.nugetExe", "%teamcity.tool.NuGet.CommandLine.DEFAULT%")
+            param("xUnitNet.assembliesPath", "*/bin/*tests.dll")
+            param("xUnitNet.dotCover.skipProcesses", "")
+            param("xUnitNet.dotCover.exportReport", "false")
+            param("xUnitNet.notrait", "Category=Integration")
+            param("xUnitNet.nugetSource", "http://www.nuget.org/api/v2/")
+            param("xUnitNet.trait", "")
+            param("xUnitNet.executable", "xunit.console.exe")
+            param("xUnitNet.dotCover.Filters", """
+                <!-- Coverage filters. It's possible to use asterisks as wildcard symbols. -->
+                <Filters>
+                  <IncludeFilters>
+                    <FilterEntry>
+                      <ModuleMask>*</ModuleMask>
+                      <ClassMask>*</ClassMask>
+                      <FunctionMask>*</FunctionMask>
+                    </FilterEntry>
+                  </IncludeFilters>
+                  <ExcludeFilters>
+                    <FilterEntry>
+                      <ModuleMask>*Tests</ModuleMask>
+                    </FilterEntry>
+                  </ExcludeFilters>
+                </Filters>
+            """.trimIndent())
+            param("xUnitNet.executable.args", "")
+        }
     }
 
     features {

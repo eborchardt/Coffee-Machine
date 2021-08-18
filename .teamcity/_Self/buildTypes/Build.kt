@@ -136,12 +136,26 @@ object Build : BuildType({
 
     triggers {
         schedule {
+            id = "TRIGGER_1"
+            schedulingPolicy = cron {
+                hours = "0"
+                dayOfWeek = "1-6"
+            }
+            branchFilter = "+:master"
+            triggerBuild = always()
+            withPendingChangesOnly = false
+            enforceCleanCheckout = true
+            enforceCleanCheckoutForDependencies = true
+            param("revisionRuleBuildBranch", "<default>")
+            param("hour", "0")
+            /*
             id = "TRIGGER_11"
             branchFilter = ""
             triggerBuild = always()
 
             enforceCleanCheckout = true
             enforceCleanCheckoutForDependencies = true
+            */
         }
     }
 

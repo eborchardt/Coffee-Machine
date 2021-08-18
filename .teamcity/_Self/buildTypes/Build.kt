@@ -12,7 +12,7 @@ object Build : BuildType({
     name = "Build"
 
     params {
-        password("test", "credentialsJSON:0ace3dd3-b4ff-4aab-997a-d426639a473b")
+        password("test", "******")
     }
 
     steps {
@@ -91,60 +91,35 @@ object Build : BuildType({
         step {
             id = "RUNNER_174"
             type = "MRPP_xunit_dotcover"
-            executionMode = BuildStep.ExecutionMode.DEFAULT
             param("xUnitNet.dotCover.reportType", "HTML")
-            param("xUnitNet.executable.legacymode", "false")
-            param("xUnitNet.dotCover.reportOutputFile", "dotCoverReport.html")
-            param("xUnitNet.assembliesExcludePath", "")
-            param("xUnitNet.dotCover.AttributeFilters", """
-                <!-- Attribute filters. It's possible to use asterisks as wildcard symbols. -->
-                <AttributeFilters>
-                  <AttributeFilterEntry>System.CodeDom.Compiler.GeneratedCodeAttribute</AttributeFilterEntry>
-                  <AttributeFilterEntry>System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute</AttributeFilterEntry>
-                  <AttributeFilterEntry>System.ObsoleteAttribute</AttributeFilterEntry>
-                </AttributeFilters>
-            """.trimIndent())
-            param("xUnitNet.dotCover.enable", "true")
-            param("xUnitNet.nugetExe", "%teamcity.tool.NuGet.CommandLine.DEFAULT%")
-            param("xUnitNet.assembliesPath", "*/bin/*tests.dll")
-            param("xUnitNet.dotCover.skipProcesses", "")
-            param("xUnitNet.dotCover.exportReport", "false")
-            param("xUnitNet.notrait", "Category=Integration")
-            param("xUnitNet.nugetSource", "http://www.nuget.org/api/v2/")
-            param("xUnitNet.trait", "")
-            param("xUnitNet.executable", "xunit.console.exe")
-            param("xUnitNet.dotCover.Filters", """
-                <!-- Coverage filters. It's possible to use asterisks as wildcard symbols. -->
-                <Filters>
-                  <IncludeFilters>
-                    <FilterEntry>
-                      <ModuleMask>*</ModuleMask>
-                      <ClassMask>*</ClassMask>
-                      <FunctionMask>*</FunctionMask>
-                    </FilterEntry>
-                  </IncludeFilters>
-                  <ExcludeFilters>
-                    <FilterEntry>
-                      <ModuleMask>*Tests</ModuleMask>
-                    </FilterEntry>
-                  </ExcludeFilters>
-                </Filters>
-            """.trimIndent())
-            param("xUnitNet.executable.args", "")
         }
     }
-
     triggers {
+        schedule {
+            id = "TRIGGER_1"
+            schedulingPolicy = cron {
+                hours = "0"
+                dayOfWeek = "1-6"
+            }
+            branchFilter = "+:master"
+            triggerBuild = always()
+            withPendingChangesOnly = false
+            enforceCleanCheckout = true
+            enforceCleanCheckoutForDependencies = true
+            param("revisionRuleBuildBranch", "<default>")
+            param("hour", "0")
+        }
+/*
         schedule {
             id = "TRIGGER_11"
             branchFilter = ""
             triggerBuild = always()
-
+        
             enforceCleanCheckout = true
             enforceCleanCheckoutForDependencies = true
         }
+*/
     }
-
     features {
         dockerSupport {
             id = "BUILD_EXT_1"
@@ -159,6 +134,6 @@ object Build : BuildType({
     requirements {
         doesNotEqual("env.OS", "Windows_NT", "RQ_1")
     }
-    
+
     disableSettings("RQ_1")
 })

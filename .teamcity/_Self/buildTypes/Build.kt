@@ -5,6 +5,7 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.dockerSupport
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.dockerCommand
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.python
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
+import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.schedule
 
 object Build : BuildType({
     templates(LocalDockerSupport)
@@ -130,6 +131,17 @@ object Build : BuildType({
                 </Filters>
             """.trimIndent())
             param("xUnitNet.executable.args", "")
+        }
+    }
+
+    triggers {
+        schedule {
+            id = "TRIGGER_11"
+            branchFilter = ""
+            triggerBuild = always()
+
+            enforceCleanCheckout = true
+            enforceCleanCheckoutForDependencies = true
         }
     }
 

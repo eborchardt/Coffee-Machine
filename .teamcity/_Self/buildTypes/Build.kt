@@ -5,7 +5,6 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.buildFeatures.dockerSupport
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.dockerCommand
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.python
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
-import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.finishBuildTrigger
 import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.schedule
 
 object Build : BuildType({
@@ -146,11 +145,6 @@ object Build : BuildType({
 
             enforceCleanCheckout = true
             enforceCleanCheckoutForDependencies = true
-        }
-        finishBuildTrigger {
-            id = "TRIGGER_14"
-            buildType = "${Build1.id}"
-            successfulOnly = true
         }
     }
 

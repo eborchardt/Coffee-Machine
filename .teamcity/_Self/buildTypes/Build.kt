@@ -146,6 +146,13 @@ object Build : BuildType({
             enforceCleanCheckout = true
             enforceCleanCheckoutForDependencies = true
         }
+        trigger {
+            id = "DelayedFinishedBuildTrigger"
+            type = "DelayedFinishedBuildTrigger"
+            param("afterSuccessfulBuildOnly", "true")
+            param("wait_time", "1")
+            param("trigger_configuration", "bt457")
+        }
     }
 
     features {

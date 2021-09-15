@@ -91,7 +91,6 @@ object Build : BuildType({
         step {
             id = "RUNNER_174"
             type = "MRPP_xunit_dotcover"
-            enabled = false
             executionMode = BuildStep.ExecutionMode.DEFAULT
             param("xUnitNet.dotCover.reportType", "HTML")
             param("xUnitNet.executable.legacymode", "false")
